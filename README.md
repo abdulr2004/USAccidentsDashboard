@@ -4,7 +4,7 @@ The US Accidents Dashboard is a web application developed using D3.js for data v
 
 ## Live
 
-Access the Live project [here]((https://abdulr2004.github.io/USAccidentsDashboard/))
+Access the Live project [here](https://abdulr2004.github.io/USAccidentsDashboard/)
 
 ## Contributors
 
