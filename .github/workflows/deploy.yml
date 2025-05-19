@@ -1,0 +1,26 @@
+# .github/workflows/pages.yml
+name: Deploy D3 dashboard to GitHub Pages
+
+on:
+  push: { branches: [main] }   # redeploy every time pushed
+  workflow_dispatch:           
+
+permissions:
+  contents: read               # checkout
+  pages: write                 
+  id-token: write              
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages       
+      url:  ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4          #  pull repo
+      - uses: actions/upload-pages-artifact@v3  #  package site
+        with:
+          path: "."                        # everything in repo root
+      - id: deployment                     # deploy
+        uses: actions/deploy-pages@v4
