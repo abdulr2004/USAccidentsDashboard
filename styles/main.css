@@ -1,0 +1,166 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.chart-title {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Chart wrapper that contains both the chart and scrollbar */
+.chart-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 820px;
+    height: 450px;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Chart container without scrolling */
+.chart-container {
+    flex-grow: 1;
+    height: 100%;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Custom scrollbar container - now on the right side */
+.scrollbar-container {
+    width: 30px;
+    background-color: #f9f9f9;
+    border-left: 1px solid #ddd;
+    display: flex;
+    flex-direction: column-reverse; 
+    align-items: center;
+    position: relative;
+}
+
+/* Scrollbar track */
+.scroll-track {
+    width: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    margin: 10px 0;
+    flex-grow: 1;
+    position: relative;
+}
+
+/* Scrollbar thumb */
+.scroll-thumb {
+    width: 10px;
+    background-color: #888;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.scroll-thumb:hover {
+    background-color: #555;
+}
+
+/* Scroll buttons */
+.scroll-button {
+    width: 20px;
+    height: 20px;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 12px;
+    user-select: none;
+    color: #555;
+    transition: background-color 0.2s;
+    margin: 5px 0;
+}
+
+.scroll-button:hover {
+    background-color: #ddd;
+    color: #cd4b4b;
+}
+
+/* Chart elements */
+.bar {
+    fill: #430000; 
+    transition: fill 0.3s;
+}
+
+/* Highlighted bar state for hover */
+.bar-highlight {
+    fill: #3498db; 
+}
+
+.axis text {
+    font-size: 12px;
+}
+
+.axis-title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.label {
+    fill: #333;
+}
+
+/* Tooltip style */
+.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 8px;
+    font-size: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border: 0px;
+    border-radius: 4px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1000;
+}
+
+#graph-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#text-box-wrapper {
+    display: flex;
+    flex-direction: column; 
+    gap: 50px; 
+}
+
+.text-box-container {
+    height: 440px;
+    width: 730px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.text-box-section {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.text-box-section:last-child {
+    border-bottom: none;
+}

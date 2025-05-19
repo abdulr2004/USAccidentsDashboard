@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>U.S. Accidents Dashboard</title>
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="styles/Styles.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+
+  <!-- D3 and TopoJSON libraries -->
+  <script src="libs/d3/d3.v7.min.js"></script>
+  <script src="libs/d3/topojson/topojson.min.js"></script>
+
+  
+</head>
+
+<body>
+  <div class="container">
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" style="background-color:#2c3e50;">
+      <h2 style="color:white;">Dashboard</h2>
+      <ul>
+        <li><a href="#map-section" style="color:white;">Accident Density Map</a></li>
+        <li><a href="#state-hotspots" style="color:white;">State Hotspots</a></li>
+        <li><a href="#severity-chart" style="color:white;">Accident Severity</a></li>
+        <li><a href="#temporal-data" style="color:white;">Time Trends</a></li>
+        <li><a href="#summary" style="color:white;">Summary</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <header>
+        <h1>Unpacking U.S. Accidents: A Data-Driven Journey</h1>
+        <p>Analyzing accident patterns across the U.S. to uncover insights.</p>
+      </header>
+
+      <!-- Accident Density Map -->
+      <section id="map-section" class="dashboard-section">
+        <h2>Accident Density Across the U.S.</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <div id="map-container" style="flex: 1 1 400px; min-width: 300px;"></div>
+          <div id="map-stats" style="flex: 0 0 auto; width: 240px; max-height: 420px; overflow-y: auto; background-color: #f2f4f5; border: 2px solid #2c3e50; padding: 16px; border-radius: 6px;"></div>
+        </div>
+      </section>
+
+      <section id="state-and-severity" class="dashboard-section1">
+        <div class="chart-row">
+          <div class="chart-card wide-chart">
+            <h3>Accidents by State</h3>
+            <div id="state-chart-section"></div>
+          </div>
+          <div class="chart-card narrow-chart">
+            <h3>Accidents by Severity</h3>
+            <div id="donut-chart-section">
+              <div id="donut-chart"></div>
+              <p class="chart-caption">
+                <em>Tip:</em> Clicking any slice in this chart filters the other visualizations (excluding the map) based on accident severity.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+      </section>
+
+      
+      <section id="temporal-data" class="dashboard-section2">
+        <h2>When Are Accidents Most Likely to Happen?</h2>
+        <div class="chart-row">
+          <div class="chart-card ">
+            <div id="line-chart-section" ></div>
+            <div class="card blue">
+              <div class="card-header">
+                  <h3>Monthly Accident Patterns Analysis</h3>
+              </div>
+              <div class="card-body">
+                <p>The data reveals clear seasonal patterns in accident frequency. </p> Winter months (December-February) show increased accidents due to hazardous weather <br>conditions like snow and ice.</p> Spring (March-May) sees a gradual decline as weather improves, while summer months (June-August)<br> experience another peak likely due to increased travel and tourism activities.</p>
+                <p>Notably, July typically has the highest accident rate, coinciding with peak vacation season.<br> The downward trend in autumn (September-November) may reflect reduced travel and more  stable weather <br> conditions. These patterns suggest opportunities for  targeted safety campaigns during high-risk periods.</p>
+              </div>
+          </div>
+          </div>
+          <div class="chart-card ">
+            <div id="polar-chart-section" ></div>
+        
+            <div class="card blue">
+              <div class="card-header">
+                  <h3>Hourly and Daily Patterns Analysis</h3>
+              </div>
+              <div class="card-body">
+                <p>Accidents peak during morning and evening rush hours <br>(7-9 AM and 4-6 PM) and weekends, with higher severity <br>crashes at night due to reduced visibility and fatigue. <br> More accidents on the first day of the week than in the weekends.</p>
+              </div>
+          </div>
+        
+          </div>
+        
+        </div>
+        <p class="tip-caption temporal-caption">
+          <em>Tip:</em> Clicking any slice in this chart filters the other visualizations (excluding the map) based on accident severity.
+        </p>
+      </section>
+
+      <section id="summary" class="dashboard-section">
+        <div id="graph-container" style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+          <div id="positive-story" style="flex: 1; min-width: 300px;"></div>
+          <div id="negative-story" style="flex: 1; min-width: 300px;"></div>
+        </div>
+        <div class="card-container">
+          <div class="card positive">
+              <div class="card-header">
+                  <h3>Safer Roads Ahead</h3>
+                  <p class="subtitle">A Positive Shift in Severe Accident Trends</p>
+              </div>
+              <div class="card-body">
+                  <p><strong>Key Statistic:</strong> Severe accidents peaked in 2019 but have steadily declined since.</p>
+                  <p><strong>Factors:</strong> Improved road safety measures, stricter regulations, and increased awareness.</p>
+                  <p><strong>Impact:</strong> The decline after 2020 suggests lasting effects from interventions.</p>
+              </div>
+          </div>
+          <div class="card negative">
+              <div class="card-header">
+                  <h3>Growing Danger on Rainy Days</h3>
+                  <p class="subtitle">Increasing Minor Accidents</p>
+              </div>
+              <div class="card-body">
+                  <p><strong>Key Statistic:</strong> Minor accidents on rainy days have increased every year, peaking in 2021.</p>
+                  <p><strong>Factors:</strong> Reckless driving, poor road maintenance, or insufficient safety measures.</p>
+                  <p><strong>Concern:</strong> Without action, this trend may lead to more serious accidents.</p>
+              </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script type="module" src="scripts/main.js"></script>
+</body>
+</html>
