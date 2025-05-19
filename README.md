@@ -2,6 +2,17 @@
 
 The US Accidents Dashboard is a web application developed using D3.js for data visualization. The dashboard provides users with interactive visualizations to explore and analyze US traffic accident data. It includes various charts, maps, and filtering capabilities for comprehensive data exploration.
 
+## Live
+
+Access the Live project [here]([https://abdulr2004.github.io/ToDO-CI-CD](https://abdulr2004.github.io/USAccidentsDashboard/))
+
+## Contributors
+
+- **Abdul Rauf** – [@abdulr2004](https://github.com/abdulr2004)
+- **Mohammed Thafheem** – [@thaf-exe](https://github.com/thaf-exe)
+- **Prudhvi Varma** – [@Prudhvivarma0](https://github.com/Prudhvivarma0)
+- **Abdul Latheef** – [@Lathoofy18](https://github.com/Lathoofy18)
+
 ## Features
 
 - **Multiple Visualizations:** Includes choropleth maps, heatmaps, donut charts, bar charts, line charts, and polar charts for comprehensive data exploration.
